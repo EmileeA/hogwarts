@@ -1,0 +1,9 @@
+//flex on this is putting our images from the studentlist.js domstring in a row
+.student-list{
+    margin-top: 70px;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+
+}
+

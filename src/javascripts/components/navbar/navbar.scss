@@ -1,6 +1,7 @@
 // anything that's a global style
 // when you're importing a scss in scss you don't need the file type. You also don't need the underscore.
 @import '../../../styles/colors';
+@import '../../../styles/variables';
 
 nav {
     background-color: $lightgray;
