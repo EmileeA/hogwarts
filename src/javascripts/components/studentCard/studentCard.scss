@@ -5,7 +5,7 @@
 // % is a holder class
 %student-card {
   width: 18%;
-  margin: 1%; //one margin on every side so I'm getting ...?
+  margin: 1%; //one margin on every side so I'm getting 20% if I want 5 to a row 100 divded by 5 is 20. if I add left and right that's 2 plus the 18 gets me 20. 
   background-color: $gold;
   box-shadow: $box-shadow;
 
@@ -14,42 +14,73 @@
     overflow: hidden;
   
 //styling the image
-    .img {
-    width: 100%;
+    img {
+      width: 100%;
     }
+  }
+  // this makes the text the right color and it's still uppercase
+  h2 {
+    @include default-font(20px);
   }
 }
 
-//to get all of the above stylign I've already made my % placeholder. This will color the font on the student cards
+//to get all of the above styling I've already made my % placeholder. This will color the font on the student cards
 // if i ever want to change the way my student card looks I just do that in one place above!
-.student-gryffindor {
-  @extend %student-card;
+
+//we are going to reduce this code to one line...see below
+// .student-gryffindor {
+//   @extend %student-card;
+
+//   h2 {
+//     color: $gryffindor;
+//   }
+// }
+
+// .student-slytherin {
+//   @extend %student-card;
+
+//   h2 {
+//     color: $slytherin;
+//   }
+// }
+
+// .student-ravenclaw {
+//   @extend %student-card;
+
+//   h2 {
+//     color: $ravenclaw;
+//   }
+// }
+
+// .student-hufflepuff {
+//   @extend %student-card;
+
+//   h2 {
+//     color: $hufflepuff;
+//   }
+// }
+
+//  !! here we go!!
+@mixin house-styles ($housecolor) {
+    @extend %student-card;
 
   h2 {
-    color: $gryffindor;
+    color: $housecolor;
   }
+}
+
+.student-gryffindor {
+  @include house-styles($gryffindor);
 }
 
 .student-slytherin {
-  @extend %student-card;
-
-  h2 {
-    color: $slytherin;
-  }
+  @include house-styles($slytherin);
 }
 
 .student-ravenclaw {
-  @extend %student-card;
-
-  h2 {
-    color: $ravenclaw;
-  }
+  @include house-styles($ravenclaw);
 }
 
 .student-hufflepuff {
-  @extend %student-card;
-
-  h2 {
-    color: $hufflepuff;
-  }
+  @include house-styles($hufflepuff);
 }

@@ -1,4 +1,4 @@
-// anything that's a global style
+// anything that's a global style is our colors and variables
 // when you're importing a scss in scss you don't need the file type. You also don't need the underscore.
 @import '../../../styles/colors';
 @import '../../../styles/variables';
@@ -13,15 +13,17 @@ nav {
     display: flex;
     flex-direction: row;
 
-    // it takes nesting as adding a space
+    // it takes nesting as adding a space between selectors, so what we will end up with is nav space .brand
     // we are applying the styling directly to the component. an li will always be nested in the ul. 
     // continued...if you have it outside of the ul it adds it like a global change. 
 
 
     .brand {
-    // brand is outside the ul so don't nest it inside the uls
-    font-size: 30px;
+    // brand is outside the ul so don't nest it inside the ul
+    // to pass a mixin it's @include
+     @include default-font(30px);
     line-height: 56px;
+    
     }
 
     ul {
@@ -30,23 +32,22 @@ nav {
         line-height: 56px;
 
         li {
-           color: white;
            padding: 0 10px; 
         
-
         // li:hover 
         //     background-color: $darkgray;
 
         // nesting is inside the {}
-        // another way you can do the hover (see below). currently it's a sudo class on the li (not sure what that means and not sure why the above is not a great way to do it). 
-        // continued... So I want to say do a hover on the parent. to do that it's an "&"
+        // another way you can do the hover (see below). currently it's a sudo class (anything with a: is a sudo class) on the li 
+        // continued... So I want to do a hover on the parent. to do that it's an "&"
         // in the dev tools -> elements -> styles there is a ".hov" if you click on it you can see the hover state.
 
             &:hover {
                 background-color: $darkgray;
             }
+
             a {
-                color: $white;
+             @include default-font(15px);
             }
         }
     }
