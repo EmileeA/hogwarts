@@ -1,0 +1,55 @@
+@import '../../../styles/colors';
+@import '../../../styles/variables';
+
+// styling the student card
+// % is a holder class
+%student-card {
+  width: 18%;
+  margin: 1%; //one margin on every side so I'm getting ...?
+  background-color: $gold;
+  box-shadow: $box-shadow;
+
+  .img-holder {
+    height: 250px;
+    overflow: hidden;
+  
+//styling the image
+    .img {
+    width: 100%;
+    }
+  }
+}
+
+//to get all of the above stylign I've already made my % placeholder. This will color the font on the student cards
+// if i ever want to change the way my student card looks I just do that in one place above!
+.student-gryffindor {
+  @extend %student-card;
+
+  h2 {
+    color: $gryffindor;
+  }
+}
+
+.student-slytherin {
+  @extend %student-card;
+
+  h2 {
+    color: $slytherin;
+  }
+}
+
+.student-ravenclaw {
+  @extend %student-card;
+
+  h2 {
+    color: $ravenclaw;
+  }
+}
+
+.student-hufflepuff {
+  @extend %student-card;
+
+  h2 {
+    color: $hufflepuff;
+  }
+}
