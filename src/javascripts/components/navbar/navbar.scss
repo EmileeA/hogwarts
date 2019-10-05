@@ -1,0 +1,54 @@
+// anything that's a global style
+// when you're importing a scss in scss you don't need the file type. You also don't need the underscore.
+@import '../../../styles/colors';
+
+nav {
+    background-color: $lightgray;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 56px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    // it takes nesting as adding a space
+    // we are applying the styling directly to the component. an li will always be nested in the ul. 
+    // continued...if you have it outside of the ul it adds it like a global change. 
+
+
+    .brand {
+    // brand is outside the ul so don't nest it inside the uls
+    font-size: 30px;
+    line-height: 56px;
+    }
+
+    ul {
+        list-style-type: none;
+        float: right;
+        line-height: 56px;
+
+        li {
+           color: white;
+           padding: 0 10px; 
+        
+
+        // li:hover 
+        //     background-color: $darkgray;
+
+        // nesting is inside the {}
+        // another way you can do the hover (see below). currently it's a sudo class on the li (not sure what that means and not sure why the above is not a great way to do it). 
+        // continued... So I want to say do a hover on the parent. to do that it's an "&"
+        // in the dev tools -> elements -> styles there is a ".hov" if you click on it you can see the hover state.
+
+            &:hover {
+                background-color: $darkgray;
+            }
+            a {
+                color: $white;
+            }
+        }
+    }
+}
+
+
